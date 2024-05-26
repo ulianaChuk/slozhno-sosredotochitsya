@@ -68,7 +68,6 @@
   right: 21px;
   gap: 8px;
   visibility: var(--rec-decor-visibility, visible);
-  
 }
 
 .rec__decor::before {
@@ -88,7 +87,7 @@
 
 .header__theme-menu {
   color: var(--menu-color, #ff0070);
-   align-self: flex-end;
+  align-self: flex-end;
   grid-area: nuv;
   align-self: center;
   padding-block-start: 5px;
@@ -145,7 +144,7 @@
   color: var(--title-color, #000028);
   line-height: 130%;
   font-weight: 700;
-  font-size: 18px; 
+  font-size: 18px;
 }
 
 .regular {
@@ -182,8 +181,8 @@
 }
 
 .main__section-title {
-  color: var(--topic-color,#ff0070);
-  font-size: 18px; 
+  color: var(--topic-color, #ff0070);
+  font-size: 18px;
 }
 
 .main__content {
@@ -338,7 +337,6 @@
     justify-content: center;
   }
 }
-
 
 @media (width >= 1024px) {
   .header__theme-menu {
