@@ -43,8 +43,8 @@
   height: 25px;
   border-block-start: 1px solid var(--menu-color, #ff0070);
   border-inline-end: 1px solid var(--menu-color, #ff0070);
-  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
-  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
 }
 
 .decorated-zone::after {
@@ -64,7 +64,7 @@
   color: var(--accent-color, #ff0070);
   align-self: flex-end;
   inset-block-start: 14px;
-  inset-inline-end: 21px;
+  inset-inline-end: 22px;
   gap: 8px;
   visibility: var(--rec-decor-visibility, visible);
 }
@@ -86,7 +86,6 @@
 
 .header__theme-menu {
   color: var(--menu-color, #ff0070);
-  /* align-self: flex-end; */
   grid-area: nuv;
   align-self: center;
   padding-block-start: 5px;
@@ -146,10 +145,6 @@
   font-size: 18px;
 }
 
-.regular {
-  font-weight: 400;
-}
-
 .header__text {
   grid-area: text;
   align-self: flex-start;
@@ -197,14 +192,33 @@
   gap: 10px;
 }
 
-.card-text-link {
-  text-shadow: 1px 1px 0 var(--accent-color, #ff0070);
-  text-decoration: none;
+.how__article__item__title {
+  font-weight: 400;
 }
 
-.card-text-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.section-how__articles-item:not(:last-child) {
+  padding-bottom: 20px;
+}
+
+.card-text-link {
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  text-decoration: none;
+  position: relative;
+}
+.card-text-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--text-color, #f1b2ce);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.card-text-link:hover::after {
+  opacity: 1;
 }
 
 .card-text-link:focus {
@@ -212,7 +226,7 @@
 }
 
 .card-text-link:focus-visible {
-  outline: 1px solid var(--accent-color, #ff0070);
+  outline: 1px solid var(--text-color, #f1b2ce);
 }
 
 .gallery {
@@ -234,6 +248,7 @@
   block-size: max(100vb, 668px);
   display: flex;
   padding: 15px;
+  justify-content: center;
 }
 
 .footer .header__title {
@@ -244,6 +259,10 @@
 @media (768px <= width) {
   .header {
     padding: 20px 20px 0 0;
+  }
+  .decorated-zone::before {
+    inset-inline-end: 20px;
+    inset-block-start: 20px;
   }
 
   .rec__decor {
@@ -333,17 +352,15 @@
     max-height: 318px;
   }
 
-  .footer {
-    justify-content: center;
-  }
 }
 
 @media (width >= 1024px) {
   .header__theme-menu {
     align-self: flex-start;
-    padding-inline-end: 45px;
     padding-block-start: 0;
     grid-column: 2/3;
+    justify-self: center;
+    padding-left: 20px;
   }
 
   .header__theme-menu-list {
@@ -362,12 +379,12 @@
     width: 67.5%;
   }
 
-  .main__section:nth-child(2) .main__section-article {
-    max-width: 315px;
-  }
-
   .main__section:nth-child(2) .main__content {
     flex-direction: row;
+  }
+
+  .section-what__articles-item {
+    width: 33.333%;
   }
 
   .gallery {
